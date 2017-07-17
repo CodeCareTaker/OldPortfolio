@@ -1,0 +1,49 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src ="<%= project.image %>">
+                <img class="img-responsive" src ="<%= project.image2 %>">
+                <img class="img-responsive" src ="<%= project.image3 %>">
+                <div class="caption-full">
+                    
+                    <h4><a><%=project.title%></a></h4>
+                    <p><%= project.description %></p>
+                </div>
+            </div>
+            <div class="well">
+                <div class"text-right">
+                    <a class="btn btn-success" href="/projects/<%= project._id %>/comments/new"><span class="glyphicon glyphicon-comment">Add New Comment</span></a>
+                </div>
+                <% if (currentUser && currentUser.isAdmin == true) { %>
+                <div>
+                    <a class="btn btn-warning" href="/projects/<%= project._id %>/edit">Edit Project Information</a>
+                </div>
+                <form class="text-right delete-form" action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+                    <a class="btn btn-danger">Remove Project</a>
+                </form>
+                <% } %>
+                <hr>
+                <% project.comments.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%= comment.author.username %></strong>
+                        <span class="pull-right"><%= comment.created %></span>
+                            <p>
+                                <%= comment.text %>
+                            </p>
+                            <a class="btn btn-xs btn-warning" href="/projects/<%=project._id%>/comments/<%=comment._id%>/edit">Edit</a>
+                            <form class="text-right delete-form" action="/projects/<%=project._id%>/comments/<%=comment._id%>?_method=DELETE">
+                                <input type="submit" class="btn btn-xs btn-danger" value="Remove Project">
+                            </form>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

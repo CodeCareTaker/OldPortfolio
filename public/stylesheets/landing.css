@@ -1,0 +1,51 @@
+body {
+    /*background: url(http://i.imgur.com/7P0n7VX.jpg) no-repeat center center fixed;*/
+    background-color: #dae2ef;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Poppins', serif;
+}
+#landing-header {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+	justify-content: center;
+    padding-top: 30%;
+	margin-left: 17%;
+	color: white;
+}
+#links {
+    position: relative;
+    text-align: center;
+    /*display: inline-block;*/
+	justify-content: center;
+    /*padding-top: 10%;*/
+	/*margin-left: 35%;*/
+	color: white;
+}
+.mainSection{
+	/*Creates spacing around the div to position it in the center
+	of the page*/
+	align-items: center;
+	display: inline-block;
+	justify-content: center;
+	border: 25px solid #dae2ef;
+	border-radius: 25px;
+	color: white;
+	background-color: #dae2ef;
+	padding: 20px;
+	margin: 10%;
+	font-size: 120%;
+}
+.newText {
+    color: white;
+    text-align: center;
+}
+.thumbnail img {
+    width: 100%;
+}
+.thumbnail {
+    padding: 0;
+}

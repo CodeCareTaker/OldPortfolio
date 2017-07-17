@@ -1,0 +1,38 @@
+body {
+    background: #dae2ef;
+    font-family: 'Poppins', serif;
+}
+.delete-form{
+    display: inline;
+}
+.formContainer {
+	width: 30%; 
+	margin: 30px auto;
+}
+.newText {
+    color: white;
+    text-align: center;
+}
+.thumbnail img {
+    width: 100%;
+}
+.thumbnail {
+    padding: 0;
+}
+.thumbnail .caption-full{
+    padding: 9px;
+}
+.siteform {
+    width: 30%; 
+    margin: 2% 30% 30% 35%;
+}
+.siteformheader {
+    margin-top: 15%;
+    margin-left: 37%;
+    color: white;
+}
+.welcome {
+    color: white;
+    text-align: center;
+    align-items: center;
+}

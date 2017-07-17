@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+ <div class="container">
+    <header class="jumbotron">
+        <div class="container welcome">
+            <% if (currentUser && currentUser.isAdmin == false) { %>
+                <h1>Welcome Back, <%=currentUser.username%></h1>
+                <p>Feel free to check out any of my projects</p>
+            <% } %>
+            <% if (currentUser && currentUser.isAdmin == true) { %>
+                <h1>Welcome Back, <%=currentUser.username%></h1>
+                <a class="btn btn-primary btn-large" href="/projects/new">Add New Project</a>
+            <% } %>
+            <% if (!currentUser) { %>
+                <h1>Welcome</h1>
+                <p>Feel free to check out any of my projects</p>
+            <% } %>
+                <p>
+                    <a class="btn btn-primary btn-md" href="/projects">Sort by oldest</a>
+                    <a class="btn btn-primary btn-md" href="/projectsDesc">Sort by latest</a>
+                    <a class="btn btn-primary btn-md" href="/projectsAlpha">Sort from A-Z</a>
+                    <a class="btn btn-primary btn-md" href="/projectsAlphaBack">Sort from Z-A</a>
+                </p>
+        </div>
+    </header>
+   
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% projects.forEach(function(project){ %>
+           <div class="col-md-3 col-sm-6">
+               <div class="thumbnail">
+                   <img src="<%= project.image %>">
+                   <div class="caption">
+                       <h4><%= project.title %></h4>
+                   </div>
+                   <p>
+                       <a href ="/projects/<%= project._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+               </div>
+           </div>
+        <% }); %>
+    </div>
+ </div>
+
+<% include ../partials/footer %>
