@@ -4,7 +4,7 @@
     <div class="row">
         <h1 class="newText">Edit Project Details</h1>
         <div class="formContainer">
-            <form action="/photos" method="POST">
+            <form action="/projects/<%= project._id %>?_method=PUT" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="text" name="project[title]" value="<%= project.title %>">
                 </div>

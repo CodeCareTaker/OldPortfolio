@@ -6,6 +6,7 @@ var projectSchema = new mongoose.Schema({
     image: String,
     image2: String,
     image3: String,
+    link: String,
     description: String,
     comments: [
         {

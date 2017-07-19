@@ -140,13 +140,13 @@ app.get("/projects/:id/edit", isAdmin, function(req, res){
         if(err){
             res.render("/projects");
         } else {
-            res.render("edit", {project: editProject});
+            res.render("projects/edit", {project: editProject});
         }
     });
 });
 
 //UPDATE ROUTE
-app.put("projects/:id", isAdmin, function(req, res){
+app.put("/projects/:id", isAdmin, function(req, res){
     //update project information
     Project.findByIdAndUpdate(req.params.id, req.body.project, function(err, updateProject){
         if(err) {
@@ -221,7 +221,7 @@ app.post("/projects/:id/comments", isLoggedIn, function(req, res){
         } else {
          Comment.create(req.body.comment, function(err, comment){
              if(err){
-                 //req.flash("error", err.message);
+                 req.flash("error", err.message);
              } else {
                  //add username and id to comment
                  comment.author.id = req.user._id;
@@ -232,7 +232,7 @@ app.post("/projects/:id/comments", isLoggedIn, function(req, res){
                  project.save();
                  console.log(comment);
                  req.flash("success", "Your comment has been posted");
-                 res.redirect("/projects/" + project._id);
+                 res.redirect("/projects/" + req.params.id);
              }
          })
             console.log(req.body.comment);
@@ -258,23 +258,22 @@ app.put("/projects/:id/comments/:comment_id", checkCommentOwnership, function(re
             res.render("back");
         } else {
             req.flash("success", "Comment has been edited");
-            res.render("/");
+            res.redirect("/projects/" + req.params.id);
         }
     })
 })
 
 //Comment Destroy Route
-app.delete("/projects/:id/comments/:comment_id", checkCommentOwnership, function(req, res){
+app.delete("/projects/:id/comments/:comment_id", function(req, res){
     Comment.findByIdAndRemove(req.params.comment_id, function(err){
         if(err){
             res.redirect("back");
         } else {
             req.flash("error", "Comment has been deleted!");
-            res.redirect("/projects");
+            res.redirect("/projects/" + req.params.id);
         }
     });
 });
-
 
 //Login Routes
 //render login form

@@ -2,8 +2,25 @@ body {
     background: #dae2ef;
     font-family: 'Poppins', serif;
 }
+#projImage1 {
+    border: solid black;
+    padding-bottom: 5%;
+}
+#projImage2 {
+    border: 2px solid black;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+#projImage3 {
+    border: solid black;
+    padding-top: 5%;
+}
 .delete-form{
     display: inline;
+}
+.delete-project-form{
+    display: inline;
+    margin-left: 61%;
 }
 .formContainer {
 	width: 30%; 
@@ -21,15 +38,6 @@ body {
 }
 .thumbnail .caption-full{
     padding: 9px;
-}
-.siteform {
-    width: 30%; 
-    margin: 2% 30% 30% 35%;
-}
-.siteformheader {
-    margin-top: 15%;
-    margin-left: 37%;
-    color: white;
 }
 .welcome {
     color: white;
