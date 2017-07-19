@@ -25,6 +25,9 @@ body {
 	/*margin-left: 35%;*/
 	color: white;
 }
+.caption-full > h4 {
+    margin-left: 15%;
+}
 .mainSection{
 	/*Creates spacing around the div to position it in the center
 	of the page*/

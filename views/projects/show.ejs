@@ -2,7 +2,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9 projContainer">
-            <!--<div class="thumbnail">-->
                 <div class="thumbnail">
                     <img class="img-responsive" src ="<%= project.image %>">
                 </div>
@@ -14,16 +13,15 @@
                 </div>
                 <div class="caption-full">
                     
-                    <h4><a href="<%=project.link%>"><%=project.title%></a></h4>
+                    <h4 id="projName"><a id="projName" href="<%=project.link%>"><%=project.title%></a></h4>
                     <p><%= project.description %></p>
                     <% if (currentUser && currentUser.isAdmin == true) { %>
-                        <a class="btn btn-warning" href="/projects/<%= project._id %>/edit">Edit Project Information</a>
+                        <a class="btn btn-basic" href="/projects/<%= project._id %>/edit">Edit Project Information</a>
                         <form class="text-right delete-project-form" action="/projects/<%= project._id %>?_method=DELETE" method="POST">
-                            <input type="submit" class="btn btn-danger" value="Remove Project">
+                            <input type="submit" class="btn btn-basic" value="Remove Project">
                         </form>
                     <% } %>
                 </div>
-            <!--</div>-->
             <!--<div class="well">-->
             <!--    <div class"text-right">-->
             <!--        <a class="btn btn-success" href="/projects/<e%= project._id %>/comments/new"><span class="glyphicon glyphicon-comment">Add New Comment</span></a>-->

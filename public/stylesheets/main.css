@@ -15,6 +15,9 @@ body {
     border: 2px solid black;
     padding-top: 5%;
 }
+#projName {
+    text-align: center;
+}
 .delete-form{
     display: inline;
 }
